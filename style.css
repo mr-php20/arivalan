@@ -87,14 +87,13 @@ body {
 }
 
 .topbar-logo {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
+  height: 36px;
+  width: auto;
+  display: block;
 }
 
-.topbar-logo-img {
-  height: 32px;
-  width: auto;
+[data-theme="dark"] .topbar-logo {
+  filter: invert(1) brightness(2);
 }
 
 .topbar-actions {
