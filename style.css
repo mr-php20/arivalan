@@ -87,15 +87,14 @@ body {
 }
 
 .topbar-logo {
-  height: 36px;
-  width: auto;
-  display: block;
+  font-family: 'Sora', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-
-[data-theme="dark"] .topbar-logo {
-  filter: invert(1) brightness(2);
-}
-
 .topbar-actions {
   display: flex;
   align-items: center;
