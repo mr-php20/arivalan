@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arivalan Paramasivan</title>
+  <meta name="description" content="I build, think, write, and occasionally overthink.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="topbar">
+    <span class="topbar-logo">MrPHP</span>
+    <div class="topbar-actions">
+      <button class="btn-surprise" id="surpriseBtn" title="Surprise Me">🎲 Surprise Me</button>
+      <button class="btn-theme" id="themeToggle" title="Toggle theme">
+        <span class="theme-icon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-badge">👋 Welcome</div>
+      <h1 class="hero-title">Hi, I'm <span class="gradient-text">Arivalan</span></h1>
+      <p class="hero-sub">I build, think, write, and occasionally overthink.</p>
+      <div class="hero-roles">
+        <span class="role-label">I'm a</span>
+        <span class="role-value" id="roleRotator">Writer</span>
+      </div>
+      <a href="#interests" class="hero-cta">Explore ↓</a>
+    </div>
+    <div class="hero-grid-bg"></div>
+  </section>
+
+  <!-- What I'm Into -->
+  <section class="section" id="interests">
+    <div class="container">
+      <h2 class="section-title">What I'm Into</h2>
+      <div class="interest-grid">
+
+        <div class="interest-card" data-card="thinking">
+          <div class="card-inner">
+            <div class="card-front">
+              <span class="card-emoji">🧠</span>
+              <h3>Thinking</h3>
+              <p class="card-hint">Click to flip →</p>
+            </div>
+            <div class="card-back">
+              <h3>🧠 Thinking</h3>
+              <ul class="idea-list">
+                <li>Most problems are badly framed questions.</li>
+                <li>Certainty closes more doors than it opens.</li>
+                <li>The best arguments are the ones you have with yourself.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="interest-card" data-card="writing">
+          <div class="card-inner">
+            <div class="card-front">
+              <span class="card-emoji">✍️</span>
+              <h3>Writing</h3>
+              <p class="card-hint">Click to flip →</p>
+            </div>
+            <div class="card-back">
+              <h3>✍️ Writing</h3>
+              <p>Tamil novel in progress — mystery, morality & truth.</p>
+              <p>3 seasons of daily poems · 1,168+ published</p>
+              <div class="writing-links">
+                <a href="https://www.yourquote.in/arivalan" class="chess-card-link" target="_blank" rel="noopener noreferrer">YourQuote →</a>
+                <a href="https://www.instagram.com/amiable.writes__" class="chess-card-link" target="_blank" rel="noopener noreferrer">@amiable.writes__ →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="interest-card" data-card="chess">
+          <div class="card-inner">
+            <div class="card-front">
+              <span class="card-emoji">♟️</span>
+              <h3>Chess</h3>
+              <p class="card-hint">Click to flip →</p>
+            </div>
+            <div class="card-back">
+              <h3>♟️ Chess</h3>
+              <div class="chess-stats-mini" id="cardChessStats">
+                <div class="chess-stat"><span class="stat-num" id="cardRapidRating">—</span><span class="stat-label">Rapid</span></div>
+              </div>
+              <p>Still blundering, but slightly less often.</p>
+              <a href="https://www.chess.com/member/mrphp" class="chess-card-link" target="_blank" rel="noopener noreferrer">chess.com/mrphp →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="interest-card" data-card="experiments">
+          <div class="card-inner">
+            <div class="card-front">
+              <span class="card-emoji">⚡</span>
+              <h3>Experiments</h3>
+              <p class="card-hint">Click to flip →</p>
+            </div>
+            <div class="card-back">
+              <h3>⚡ Experiments</h3>
+              <ul class="idea-list">
+                <li>Building random side projects nobody asked for</li>
+                <li>Exploring how psychology shapes decisions</li>
+                <li>Trying to figure out what "done" really means</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Stats -->
+  <section class="section section-stats" id="stats">
+    <div class="container">
+      <h2 class="section-title">Current State</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-icon">♟️</span>
+          <span class="stat-number" id="statChessRating" data-target="1000">0</span>
+          <span class="stat-desc">Chess Rating</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">✍️</span>
+          <span class="stat-number-text">3 Seasons</span>
+          <span class="stat-desc">கவிதைகள்</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">📚</span>
+          <span class="stat-number-text">In Progress</span>
+          <span class="stat-desc">kadhaigal</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">📝</span>
+          <span class="stat-number" id="statPoemCount" data-target="1168">0</span>
+          <span class="stat-desc">Poems Published</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Poem Section -->
+  <section class="section section-poem" id="poem">
+    <div class="container">
+      <div class="poem-header">
+        <h2 class="section-title">கவிதை Season</h2>
+        <a href="https://www.yourquote.in/arivalan" class="chess-profile-link" target="_blank" rel="noopener noreferrer">📝 yourquote.in/arivalan →</a>
+      </div>
+      <p class="poem-subtitle">3 seasons of daily poems in Tamil. Each season spans a year, with breaks in between. <span id="yqPostCount">1,168</span>+ published on YourQuote — many more exist offline.</p>
+      <div class="poem-seasons">
+        <div class="season-card" data-season="காதல் தினம் தினம்">
+          <span class="season-badge">Season 1</span>
+          <span class="season-label">காதல் தினம் தினம்</span>
+          <span class="season-meta">Year 1 · Daily poems</span>
+        </div>
+        <div class="season-card" data-season="மீண்டும் ஓர் காதல் மழை">
+          <span class="season-badge">Season 2</span>
+          <span class="season-label">மீண்டும் ஓர் காதல் மழை</span>
+          <span class="season-meta">Year 2 · Daily poems</span>
+        </div>
+        <div class="season-card" data-season="கற்பனையோ காதல் வசம்">
+          <span class="season-badge">Season 3</span>
+          <span class="season-label">கற்பனையோ காதல் வசம்</span>
+          <span class="season-meta">Year 3 · Daily poems</span>
+        </div>
+      </div>
+      <div class="poem-trio" id="poemTrio">
+        <div class="poem-card" id="poemCard0">
+          <p class="poem-text">காதல் தினம் தினம்</p>
+          <span class="poem-caption"></span>
+          <span class="poem-date"></span>
+        </div>
+        <div class="poem-card" id="poemCard1">
+          <p class="poem-text">மீண்டும் ஓர் காதல் மழை</p>
+          <span class="poem-caption"></span>
+          <span class="poem-date"></span>
+        </div>
+        <div class="poem-card" id="poemCard2">
+          <p class="poem-text">கற்பனையோ காதல் வசம்</p>
+          <span class="poem-caption"></span>
+          <span class="poem-date"></span>
+        </div>
+      </div>
+      <div class="poem-controls">
+        <button class="btn-generate" id="shufflePoem">🎲 Shuffle All</button>
+      </div>
+      <div class="poem-links">
+        <a href="https://www.instagram.com/amiable.writes__" class="contact-chip" target="_blank" rel="noopener noreferrer">📸 @amiable.writes__</a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Chess -->
+  <section class="section section-chess" id="chess">
+    <div class="container">
+      <div class="chess-title-row">
+        <h2 class="section-title">Chess Mode</h2>
+        <a href="https://www.chess.com/member/mrphp" class="chess-profile-link" target="_blank" rel="noopener noreferrer">♟️ chess.com/mrphp →</a>
+      </div>
+      <div class="chess-info-centered">
+        <div class="chess-ratings-row" id="chessRatings">
+          <div class="chess-rating-big">
+            <span class="rating-num" id="rapidRating">—</span>
+            <span class="rating-label">⚡ Rapid Rating</span>
+          </div>
+        </div>
+        <div class="chess-record" id="chessRecord"></div>
+        <p class="chess-tagline">Still blundering, but slightly less often.</p>
+        <div class="chess-traits">
+          <span class="trait">Pattern Recognition ↗</span>
+          <span class="trait">Visualization 🔄</span>
+          <span class="trait">Middlegame 😬</span>
+        </div>
+        <div class="chess-last-online" id="chessLastOnline"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Novel -->
+  <section class="section" id="novel">
+    <div class="container">
+      <h2 class="section-title">Currently Writing</h2>
+      <div class="novel-card">
+        <div class="novel-top">
+          <span class="novel-badge">விலங்குகள் நலத்துறை</span>
+          <span class="novel-status">🔴 In Progress</span>
+        </div>
+        <p class="novel-hook">"A story where truth arrives too late."</p>
+        <p class="novel-desc">Mystery. Morality. Characters who don't reveal themselves easily. Truths that arrive late, if at all.</p>
+        <h4 class="novel-snippet-header">Read a snippet</h4>
+        <div class="novel-snippet open">
+          <p class="novel-snippet-tamil">கார்மேக கூட்டம் படையெடுத்து வருவது தெரியாத வண்ணம் நகரம் இருட்டிக்கிடக்கிறது. மக்கள் இருட்டில் அவதிப்படுவதை ஏற்க இயலாத மேகங்கள், ஒன்றோடு ஒன்று உரசி தங்களால் இயன்றவரை மின்னல்களை உற்பத்தி செய்யத் துவங்கியது. நகரை ஒளியூட்டும் நோக்கத்தில் விளைந்த மேகங்களின் செயல் சற்று ஒலியையும் ஊட்ட வீதியில் உறங்கும் நாய்கள் பயந்தே காணப்படுகிறது. உதவி உபத்திரம் ஆவதை கண்டு மேகக்கூட்டம் அழத் துவங்கும் நேரம்.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Personal / Wedding -->
+  <section class="section" id="personal">
+    <div class="container">
+      <div class="personal-card">
+        <div class="personal-emoji">❤️</div>
+        <h3>Personal</h3>
+        <p>One of the best things happening in my life right now.</p>
+        <a href="https://akshaya.weds.arivalan.in" class="wedding-link" target="_blank" rel="noopener noreferrer">
+          View My Wedding Invite →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Say Hi</h2>
+      <p class="contact-sub">Want to talk about ideas, chess, or anything interesting?</p>
+      <div class="contact-links">
+        <a href="mailto:hello@arivalan.in" class="contact-chip">📧 Email</a>
+        <a href="https://www.instagram.com/alan.amiable__" class="contact-chip" target="_blank" rel="noopener noreferrer">📸 @alan.amiable__</a>
+        <a href="https://www.instagram.com/amiable.writes__" class="contact-chip" target="_blank" rel="noopener noreferrer">✍️ @amiable.writes__</a>
+        <a href="https://www.yourquote.in/arivalan" class="contact-chip" target="_blank" rel="noopener noreferrer">📝 YourQuote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Built with curiosity & too much coffee ☕</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
