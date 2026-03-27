@@ -3,23 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arivalan Paramasivan</title>
+  <title>Arivalan Paramasivan — Writer, Thinker, Chess Player</title>
   <meta name="description" content="I build, think, write, and occasionally overthink.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arivalan.in/">
+  <meta property="og:title" content="Arivalan Paramasivan — Writer, Thinker, Chess Player">
+  <meta property="og:description" content="I build, think, write, and occasionally overthink. Tamil poet, chess player, and curious questioner.">
+  <meta property="og:site_name" content="Arivalan Paramasivan">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Arivalan Paramasivan — Writer, Thinker, Chess Player">
+  <meta name="twitter:description" content="I build, think, write, and occasionally overthink. Tamil poet, chess player, and curious questioner.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; connect-src 'self' https://api.chess.com https://www.yourquote.in; img-src 'self' data:;">
+
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Arivalan Paramasivan",
+    "url": "https://arivalan.in",
+    "sameAs": [
+      "https://www.yourquote.in/arivalan",
+      "https://www.instagram.com/alan.amiable__",
+      "https://www.instagram.com/amiable.writes__",
+      "https://www.chess.com/member/mrphp"
+    ],
+    "knowsAbout": ["Writing", "Tamil Poetry", "Chess"],
+    "description": "Writer, thinker, chess player, and curious questioner."
+  }
+  </script>
 </head>
 <body>
+
+  <!-- Skip to content -->
+  <a href="#interests" class="skip-link">Skip to content</a>
 
   <!-- Top Bar -->
   <header class="topbar">
     <span class="topbar-logo">MrPHP</span>
     <div class="topbar-actions">
-      <button class="btn-surprise" id="surpriseBtn" title="Surprise Me">🎲 Surprise Me</button>
-      <button class="btn-theme" id="themeToggle" title="Toggle theme">
+      <button class="btn-surprise" id="surpriseBtn" title="Surprise Me" aria-label="Scroll to a random section">🎲 Surprise Me</button>
+      <button class="btn-theme" id="themeToggle" title="Toggle theme" aria-label="Toggle dark and light theme">
         <span class="theme-icon">🌙</span>
       </button>
     </div>
@@ -46,7 +82,7 @@
       <h2 class="section-title">What I'm Into</h2>
       <div class="interest-grid">
 
-        <div class="interest-card" data-card="thinking">
+        <div class="interest-card" data-card="thinking" role="button" tabindex="0" aria-label="Thinking — click to flip">
           <div class="card-inner">
             <div class="card-front">
               <span class="card-emoji">🧠</span>
@@ -64,7 +100,7 @@
           </div>
         </div>
 
-        <div class="interest-card" data-card="writing">
+        <div class="interest-card" data-card="writing" role="button" tabindex="0" aria-label="Writing — click to flip">
           <div class="card-inner">
             <div class="card-front">
               <span class="card-emoji">✍️</span>
@@ -83,7 +119,7 @@
           </div>
         </div>
 
-        <div class="interest-card" data-card="chess">
+        <div class="interest-card" data-card="chess" role="button" tabindex="0" aria-label="Chess — click to flip">
           <div class="card-inner">
             <div class="card-front">
               <span class="card-emoji">♟️</span>
@@ -101,7 +137,7 @@
           </div>
         </div>
 
-        <div class="interest-card" data-card="experiments">
+        <div class="interest-card" data-card="experiments" role="button" tabindex="0" aria-label="Experiments — click to flip">
           <div class="card-inner">
             <div class="card-front">
               <span class="card-emoji">⚡</span>
@@ -162,17 +198,17 @@
       </div>
       <p class="poem-subtitle">3 seasons of daily poems in Tamil. Each season spans a year, with breaks in between. <span id="yqPostCount">1,168</span>+ published on YourQuote, many more exist offline.</p>
       <div class="poem-seasons">
-        <div class="season-card" data-season="காதல் தினம் தினம்">
+        <div class="season-card" data-season="காதல் தினம் தினம்" role="button" tabindex="0">
           <span class="season-badge">Season 1</span>
           <span class="season-label">காதல் தினம் தினம்</span>
           <span class="season-meta">Year 1 · Daily poems</span>
         </div>
-        <div class="season-card" data-season="மீண்டும் ஓர் காதல் மழை">
+        <div class="season-card" data-season="மீண்டும் ஓர் காதல் மழை" role="button" tabindex="0">
           <span class="season-badge">Season 2</span>
           <span class="season-label">மீண்டும் ஓர் காதல் மழை</span>
           <span class="season-meta">Year 2 · Daily poems</span>
         </div>
-        <div class="season-card" data-season="கற்பனையோ காதல் வசம்">
+        <div class="season-card" data-season="கற்பனையோ காதல் வசம்" role="button" tabindex="0">
           <span class="season-badge">Season 3</span>
           <span class="season-label">கற்பனையோ காதல் வசம்</span>
           <span class="season-meta">Year 3 · Daily poems</span>
@@ -232,6 +268,40 @@
     </div>
   </section>
 
+  <!-- Projects -->
+  <section class="section" id="projects">
+    <div class="container">
+      <h2 class="section-title">Side Projects</h2>
+      <p class="projects-subtitle">Random things I've built — mostly for fun, sometimes for learning.</p>
+      <div class="projects-grid">
+        <div class="project-card">
+          <span class="project-emoji">🎯</span>
+          <h3>Bingo</h3>
+          <p>Real-time 2-player Indian-style Bingo — built as a PWA with React &amp; Socket.io.</p>
+          <a href="https://games.arivalan.in/bingo" class="project-link" target="_blank" rel="noopener noreferrer">Play →</a>
+        </div>
+        <div class="project-card">
+          <span class="project-emoji">💍</span>
+          <h3>Wedding Invite</h3>
+          <p>A custom-built web invitation for my wedding — designed from scratch.</p>
+          <a href="https://akshaya.weds.arivalan.in" class="project-link" target="_blank" rel="noopener noreferrer">View →</a>
+        </div>
+        <div class="project-card">
+          <span class="project-emoji">🌐</span>
+          <h3>This Site</h3>
+          <p>Personal site with live Chess.com stats, Tamil poem shuffle, and dark/light theme.</p>
+          <a href="https://arivalan.in" class="project-link" target="_blank" rel="noopener noreferrer">You're here →</a>
+        </div>
+        <div class="project-card">
+          <span class="project-emoji">✍️</span>
+          <h3>1,168+ Poems</h3>
+          <p>Three seasons of daily Tamil poems published on YourQuote — a creative marathon.</p>
+          <a href="https://www.yourquote.in/arivalan" class="project-link" target="_blank" rel="noopener noreferrer">Read →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Novel -->
   <section class="section" id="novel">
     <div class="container">
@@ -279,9 +349,13 @@
     </div>
   </section>
 
+  <!-- Back to Top -->
+  <button class="btn-back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
+
   <!-- Footer -->
   <footer class="footer">
     <p>Built with curiosity & too much coffee ☕</p>
+    <p class="footer-copy">&copy; 2026 Arivalan Paramasivan</p>
   </footer>
 
   <script src="script.js"></script>

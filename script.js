@@ -22,20 +22,29 @@
   var themeBtn = document.getElementById('themeToggle');
   var themeIcon = themeBtn.querySelector('.theme-icon');
 
+  // Restore saved theme
+  var savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    themeIcon.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+  }
+
   themeBtn.addEventListener('click', function () {
     var html = document.documentElement;
     var current = html.getAttribute('data-theme');
     if (current === 'dark') {
       html.setAttribute('data-theme', 'light');
       themeIcon.textContent = '☀️';
+      localStorage.setItem('theme', 'light');
     } else {
       html.setAttribute('data-theme', 'dark');
       themeIcon.textContent = '🌙';
+      localStorage.setItem('theme', 'dark');
     }
   });
 
   // ---- Surprise Me ----
-  var sections = ['interests', 'stats', 'poem', 'chess', 'novel', 'personal', 'contact'];
+  var sections = ['interests', 'stats', 'poem', 'chess', 'projects', 'novel', 'personal', 'contact'];
   document.getElementById('surpriseBtn').addEventListener('click', function () {
     var randomId = sections[Math.floor(Math.random() * sections.length)];
     var target = document.getElementById(randomId);
@@ -55,9 +64,14 @@
   var interestCards = document.querySelectorAll('.interest-card');
   interestCards.forEach(function (card) {
     card.addEventListener('click', function (e) {
-      // Don't flip if clicking a link
       if (e.target.tagName === 'A') return;
       card.classList.toggle('flipped');
+    });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.classList.toggle('flipped');
+      }
     });
   });
 
@@ -115,7 +129,14 @@
   }
 
   function pickRandom(arr, count) {
-    var shuffled = arr.slice().sort(function () { return 0.5 - Math.random(); });
+    // Fisher-Yates shuffle
+    var shuffled = arr.slice();
+    for (var i = shuffled.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = shuffled[i];
+      shuffled[i] = shuffled[j];
+      shuffled[j] = temp;
+    }
     return shuffled.slice(0, count);
   }
 
@@ -147,7 +168,10 @@
   }
 
   fetch('poems.json')
-    .then(function (res) { return res.json(); })
+    .then(function (res) {
+      if (!res.ok) throw new Error('Failed to load poems');
+      return res.json();
+    })
     .then(function (data) {
       allPoems = data;
       tamilPoems = data.filter(function (p) { return p.tamil; });
@@ -159,19 +183,30 @@
       });
       showRandomPoems();
     })
-    .catch(function () {});
+    .catch(function () {
+      var card = document.getElementById('poemCard0');
+      if (card) {
+        card.querySelector('.poem-text').textContent = 'Could not load poems. Try refreshing.';
+        card.style.opacity = '1';
+      }
+    });
 
   // ---- Season Card Click ----
   var seasonCards = document.querySelectorAll('.season-card[data-season]');
   seasonCards.forEach(function (card) {
     card.addEventListener('click', function () {
       var season = card.getAttribute('data-season');
-      // Toggle active state
       seasonCards.forEach(function (c) { c.classList.remove('active'); });
       card.classList.add('active');
       activeSeason = season;
       var pool = seasonPoems[season] || tamilPoems;
       showRandomPoems(pool);
+    });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
     });
   });
 
@@ -230,10 +265,18 @@
         if (mode && mode.record) {
           var rec = mode.record;
           var recordEl = document.getElementById('chessRecord');
-          recordEl.innerHTML =
-            '<span class="record-item wins">W ' + rec.win + '</span>' +
-            '<span class="record-item losses">L ' + rec.loss + '</span>' +
-            '<span class="record-item draws">D ' + rec.draw + '</span>';
+          recordEl.textContent = '';
+          var items = [
+            { cls: 'wins', label: 'W ' + rec.win },
+            { cls: 'losses', label: 'L ' + rec.loss },
+            { cls: 'draws', label: 'D ' + rec.draw }
+          ];
+          items.forEach(function (item) {
+            var span = document.createElement('span');
+            span.className = 'record-item ' + item.cls;
+            span.textContent = item.label;
+            recordEl.appendChild(span);
+          });
         }
       })
       .catch(function () {
@@ -283,5 +326,20 @@
     var target = document.querySelector(this.getAttribute('href'));
     if (target) target.scrollIntoView({ behavior: 'smooth' });
   });
+
+  // ---- Back to Top Button ----
+  var backToTopBtn = document.getElementById('backToTop');
+  if (backToTopBtn) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 600) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+    backToTopBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
 })();
